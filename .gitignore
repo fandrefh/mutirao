@@ -2,4 +2,3 @@ lib
 include
 bin
 *.pyc
-*.sqlite3
