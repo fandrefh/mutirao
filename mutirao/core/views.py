@@ -1,4 +1,6 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, login
+from django.http import HttpResponse
 
 from .forms import UserForm, UserProfileForm
 
@@ -32,6 +34,23 @@ def cadastro_usuario(request):
 
 	return render(request, 'core/cadastro_usuario.html',\
 		{'user_form': user_form, 'profile_form': profile_form})
+
+def user_login(request):
+	if request.method == 'POST':
+		username = request.POST.get('username')
+		password = request.POST.get('password')
+
+		user = authenticate(username=username, password=password)
+
+		if user:
+			if user.is_active:
+				login(request, user)
+				return HttpResponse("Login feito com sucesso.")
+			else:
+				return HttpResponse("Sua conta esta desativada.")
+		else:
+			return HttpResponse("Usuario ou senha invalido.")
+	return render(request, 'core/form_login.html')
 
 def sucesso_usuario(request):
 	return render(request, 'core/sucesso_usuario.html')
