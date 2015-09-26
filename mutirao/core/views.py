@@ -1,8 +1,10 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse
 
 from .forms import UserForm, UserProfileForm
+
+from .models import Sobre, ComoFunciona
 
 # Create your views here.
 
@@ -45,12 +47,24 @@ def user_login(request):
 		if user:
 			if user.is_active:
 				login(request, user)
-				return HttpResponse("Login feito com sucesso.")
+				return redirect('campanha:addcampanha')
 			else:
 				return HttpResponse("Sua conta esta desativada.")
 		else:
 			return HttpResponse("Usuario ou senha invalido.")
 	return render(request, 'core/form_login.html')
 
+def user_logout(request):
+	logout(request)
+	return redirect('core:home')
+
 def sucesso_usuario(request):
 	return render(request, 'core/sucesso_usuario.html')
+
+def sobre(request):
+	sobre = Sobre.objects.all()
+	return render(request, 'core/sobre.html', {'sobre': sobre})
+
+def como_funciona(request):
+	como_funciona = ComoFunciona.objects.all()
+	return render(request, 'core/como_funciona.html', {'como_funciona': como_funciona})
