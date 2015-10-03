@@ -1,0 +1,30 @@
+Projeto Mutirão
+
+- Cadastro de usuário;
+	- Nome;
+	- Sobrenome;
+	- Username;
+	- Senha;
+	- Email;
+	- Telefone;
+	- Foto (para perfil)
+- Login de usuário;
+	- Username/Email;
+	- Senha;
+- Cadastro de evento;
+	- Título do Evento;
+	- Descrição do evento;
+	- Local do evento;
+	- Data do evento;
+	- Horário;
+	- Data do cadastro do evento (automático);
+- Galeria de fotos;
+	- Imagem;
+- Listagem dos eventos na página principal;
+	- Exibir na página home os últimos eventos cadastrados;
+	- Link para página a evento;
+- Compartilhamento de evento;
+	- Enviar link do evento para o Facebook;
+- Informar participação no evento;
+	- Confirmar presença;
+	- Informar qual atividade gostaria de fazer;

@@ -29,7 +29,7 @@ class ComoFunciona(models.Model):
 
 	def __str__(self):
 		return self.titulo
-
+	
 	class Meta:
 		verbose_name='Como funciona'
 		verbose_name_plural='Como funciona'

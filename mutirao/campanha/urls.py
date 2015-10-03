@@ -1,7 +1,8 @@
 from django.conf.urls import url
 
-from mutirao.campanha.views import add_campanha
+from mutirao.campanha import views
 
 urlpatterns = [
-    url(r'^adicionar/$', add_campanha, name='addcampanha'),
+    url(r'^dashboard/$', views.dashboard, name='dashboard'),
+    url(r'^adicionar/$', views.add_campanha, name='add_campanha'),
 ]

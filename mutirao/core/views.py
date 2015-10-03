@@ -9,7 +9,7 @@ from .models import Sobre, ComoFunciona
 # Create your views here.
 
 def home(request):
-	return render(request, 'base.html')
+	return render(request, 'core/index.html')
 
 def cadastro_usuario(request):
 	if request.method == 'POST':
@@ -47,7 +47,7 @@ def user_login(request):
 		if user:
 			if user.is_active:
 				login(request, user)
-				return redirect('campanha:addcampanha')
+				return redirect('campanha:dashboard')
 			else:
 				return HttpResponse("Sua conta esta desativada.")
 		else:

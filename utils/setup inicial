@@ -1,0 +1,14 @@
+virtualenv -p /usr/bin/python3.4 vmutirao2
+cd vmutirao2
+source bin/activate
+(vmutirao2)note@note-HP-14-Notebook-PC:~/Projetos/vmutirao2$
+git clone https://github.com/fandrefh/mutirao.git tmp && mv tmp/.git . && rm -rf tmp && git reset --hard
+pip install -r requirements.txt
+
+atualizar repositório:
+git pull
+
+trabalhar com ImageField
+Pillow
+Dependências Pillow
+sudo apt-get install python3-dev python3-setuptools
